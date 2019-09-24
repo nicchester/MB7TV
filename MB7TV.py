@@ -24,6 +24,7 @@ accessTokenSecret = ""
 # *** *** *** *** *** *** *** *** *** *** ***
 
 import tweepy, os
+import time 
 import win32file, win32event, win32con
 from datetime import datetime
 
@@ -84,6 +85,9 @@ try:
 
                     # Convert posix timestamp to readable UTC datetime string
                     dateTime = datetime.utcfromtimestamp(timeStamp).strftime(timeFormat)
+                    
+                    # Add a 2 second delay 
+                    time.sleep(2)
 
                     # Stitch together a message to accompany the image tweeted
                     message = messageTemplate.replace("[time]", dateTime)
